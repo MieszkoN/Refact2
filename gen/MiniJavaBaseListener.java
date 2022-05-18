@@ -1,9 +1,9 @@
 // Generated from /home/mieszko/Pulpit/ECOTE/Lab/Refact2/grammar/MiniJava.g4 by ANTLR 4.10.1
 
-package mini_java.antlr;
+    package mini_java.antlr;
 
 
-import org.antt2lr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 

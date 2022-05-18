@@ -1,6 +1,6 @@
 // Generated from /home/mieszko/Pulpit/ECOTE/Lab/Refact2/grammar/MiniJava.g4 by ANTLR 4.10.1
 
-package mini_java.antlr;
+    package mini_java.antlr;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 

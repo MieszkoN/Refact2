@@ -1,6 +1,6 @@
 // Generated from /home/mieszko/Pulpit/ECOTE/Lab/Refact2/grammar/MiniJava.g4 by ANTLR 4.10.1
 
-package mini_java.antlr;
+    package mini_java.antlr;
 
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -24,7 +24,7 @@ public class MiniJavaParser extends Parser {
 		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
 		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, T__29=30, T__30=31, 
 		T__31=32, T__32=33, T__33=34, T__34=35, T__35=36, T__36=37, INT=38, BOOL=39, 
-		Identifier=40;
+		Identifier=40, WS=41;
 	public static final int
 		RULE_goal = 0, RULE_mainClassDeclaration = 1, RULE_classDeclaration = 2, 
 		RULE_mainClassBody = 3, RULE_mainMethod = 4, RULE_mainMethodDeclaration = 5, 
@@ -61,7 +61,7 @@ public class MiniJavaParser extends Parser {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, "INT", "BOOL", "Identifier"
+			null, null, "INT", "BOOL", "Identifier", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -2373,7 +2373,7 @@ public class MiniJavaParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001(\u013c\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001)\u013c\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+
