@@ -1,7 +1,4 @@
 // Generated from /home/mieszko/Pulpit/ECOTE/Lab/Refact2/grammar/MiniJava.g4 by ANTLR 4.10.1
-
-    package mini_java.antlr;
-
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

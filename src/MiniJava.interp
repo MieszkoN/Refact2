@@ -87,7 +87,7 @@ Identifier
 WS
 
 rule names:
-goal
+start
 mainClassDeclaration
 classDeclaration
 mainClassBody

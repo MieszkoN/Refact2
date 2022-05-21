@@ -1,7 +1,4 @@
 // Generated from /home/mieszko/Pulpit/ECOTE/Lab/Refact2/grammar/MiniJava.g4 by ANTLR 4.10.1
-
-    package mini_java.antlr;
-
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -10,15 +7,15 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface MiniJavaListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link MiniJavaParser#goal}.
+	 * Enter a parse tree produced by {@link MiniJavaParser#start}.
 	 * @param ctx the parse tree
 	 */
-	void enterGoal(MiniJavaParser.GoalContext ctx);
+	void enterStart(MiniJavaParser.StartContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link MiniJavaParser#goal}.
+	 * Exit a parse tree produced by {@link MiniJavaParser#start}.
 	 * @param ctx the parse tree
 	 */
-	void exitGoal(MiniJavaParser.GoalContext ctx);
+	void exitStart(MiniJavaParser.StartContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MiniJavaParser#mainClassDeclaration}.
 	 * @param ctx the parse tree

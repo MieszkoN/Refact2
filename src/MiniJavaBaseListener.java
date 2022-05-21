@@ -1,8 +1,5 @@
 // Generated from /home/mieszko/Pulpit/ECOTE/Lab/Refact2/grammar/MiniJava.g4 by ANTLR 4.10.1
 
-    package mini_java.antlr;
-
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -18,13 +15,13 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterGoal(MiniJavaParser.GoalContext ctx) { }
+	@Override public void enterStart(MiniJavaParser.StartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitGoal(MiniJavaParser.GoalContext ctx) { }
+	@Override public void exitStart(MiniJavaParser.StartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

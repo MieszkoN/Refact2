@@ -1,7 +1,4 @@
 // Generated from /home/mieszko/Pulpit/ECOTE/Lab/Refact2/grammar/MiniJava.g4 by ANTLR 4.10.1
-
-    package mini_java.antlr;
-
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -13,11 +10,11 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link MiniJavaParser#goal}.
+	 * Visit a parse tree produced by {@link MiniJavaParser#start}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitGoal(MiniJavaParser.GoalContext ctx);
+	T visitStart(MiniJavaParser.StartContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link MiniJavaParser#mainClassDeclaration}.
 	 * @param ctx the parse tree

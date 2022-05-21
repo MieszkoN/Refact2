@@ -1,7 +1,4 @@
 // Generated from /home/mieszko/Pulpit/ECOTE/Lab/Refact2/grammar/MiniJava.g4 by ANTLR 4.10.1
-
-    package mini_java.antlr;
-
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -26,7 +23,7 @@ public class MiniJavaParser extends Parser {
 		T__31=32, T__32=33, T__33=34, T__34=35, T__35=36, T__36=37, INT=38, BOOL=39, 
 		Identifier=40, WS=41;
 	public static final int
-		RULE_goal = 0, RULE_mainClassDeclaration = 1, RULE_classDeclaration = 2, 
+		RULE_start = 0, RULE_mainClassDeclaration = 1, RULE_classDeclaration = 2, 
 		RULE_mainClassBody = 3, RULE_mainMethod = 4, RULE_mainMethodDeclaration = 5, 
 		RULE_classBody = 6, RULE_fieldDeclaration = 7, RULE_varDeclaration = 8, 
 		RULE_methodDeclaration = 9, RULE_methodBody = 10, RULE_formalParameters = 11, 
@@ -36,7 +33,7 @@ public class MiniJavaParser extends Parser {
 		RULE_stringType = 22;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"goal", "mainClassDeclaration", "classDeclaration", "mainClassBody", 
+			"start", "mainClassDeclaration", "classDeclaration", "mainClassBody", 
 			"mainMethod", "mainMethodDeclaration", "classBody", "fieldDeclaration", 
 			"varDeclaration", "methodDeclaration", "methodBody", "formalParameters", 
 			"formalParameterList", "formalParameter", "type", "statement", "expression", 
@@ -115,7 +112,7 @@ public class MiniJavaParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
-	public static class GoalContext extends ParserRuleContext {
+	public static class StartContext extends ParserRuleContext {
 		public MainClassDeclarationContext mainClassDeclaration() {
 			return getRuleContext(MainClassDeclarationContext.class,0);
 		}
@@ -126,28 +123,28 @@ public class MiniJavaParser extends Parser {
 		public ClassDeclarationContext classDeclaration(int i) {
 			return getRuleContext(ClassDeclarationContext.class,i);
 		}
-		public GoalContext(ParserRuleContext parent, int invokingState) {
+		public StartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_goal; }
+		@Override public int getRuleIndex() { return RULE_start; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).enterGoal(this);
+			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).enterStart(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).exitGoal(this);
+			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).exitStart(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MiniJavaVisitor ) return ((MiniJavaVisitor<? extends T>)visitor).visitGoal(this);
+			if ( visitor instanceof MiniJavaVisitor ) return ((MiniJavaVisitor<? extends T>)visitor).visitStart(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final GoalContext goal() throws RecognitionException {
-		GoalContext _localctx = new GoalContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_goal);
+	public final StartContext start() throws RecognitionException {
+		StartContext _localctx = new StartContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_start);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);

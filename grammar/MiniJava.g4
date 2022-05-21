@@ -1,10 +1,6 @@
 grammar MiniJava;
 
-@header {
-    package mini_java.antlr;
-}
-
-goal
+start
     :   mainClassDeclaration
         classDeclaration*
         EOF
