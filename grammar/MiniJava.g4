@@ -141,7 +141,7 @@ expression
     |   'this'
     # thisExpression
     |   '(' expression ')'
-    # parenExpression
+    # parentExpression
     ;
 
 methodArgumentList
@@ -182,5 +182,5 @@ Identifier
     ;
 
 WS
-    :   [ \r\t\n]+ -> skip
+    :   [ \r\t\n]+ -> channel(HIDDEN)
     ;
