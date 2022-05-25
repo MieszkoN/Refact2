@@ -2,12 +2,13 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
-
+        System.out.println("---------------------------------------------------------------------------");
         System.out.println("Please provide the name of the file:");
         Scanner input = new Scanner(System.in);
         String fileName = input.nextLine();
@@ -19,16 +20,48 @@ public class Main {
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             MiniJavaParser parser = new MiniJavaParser(tokens);
             ParseTree tree = parser.start();
-
-            MiniJavaListener listener = new MiniJavaBaseListener();
+            System.out.println("---------------------------------------------------------------------------");
+            System.out.println("Please select the class from which you want to pull up the method.");
             RefactoringTreeVisitor miniJavaBaseVisitor = new RefactoringTreeVisitor();
             miniJavaBaseVisitor.visit(tree);
-            TokenStreamRewriter tokenStreamRewriter = new TokenStreamRewriter(tokens);
-            ParseTreeWalker walker = new ParseTreeWalker();
-            walker.walk(listener, tree);
-            System.out.println(tokenStreamRewriter.getText());
-            writeToFile(tokenStreamRewriter.getText(), "Output.java");
-            System.out.println("Refactoring finished successfully!");
+            int i = 1;
+            for(String className : miniJavaBaseVisitor.getClasses()) {
+                System.out.println(i + ". " + className);
+                i++;
+            }
+            System.out.println("---------------------------------------------------------------------------");
+            int classChoice = -1;
+            boolean correctOption = false;
+            while(!correctOption) {
+                System.out.println("Provide your choice: ");
+                Scanner scan = new Scanner(System.in);
+                if (scan.hasNextInt()) {
+                    classChoice = scan.nextInt();
+                    correctOption = true;
+                } else {
+                    System.out.println("You did not provide correct option, try again!");
+                }
+            }
+
+            String chosenClassName = miniJavaBaseVisitor.getClasses().get(classChoice-1);
+            System.out.println("---------------------------------------------------------------------------");
+            if (!miniJavaBaseVisitor.getClassesWithMethods().containsKey(chosenClassName)) {
+                System.out.println("Chosen class does not contain any methods.");
+            } else {
+                int j = 1;
+                System.out.println("Please select the method which you want to pull up:");
+                for (String methodName : miniJavaBaseVisitor.getClassesWithMethods().get(chosenClassName)) {
+                    System.out.println(j + ". " + methodName);
+                    j++;
+                }
+                System.out.println("---------------------------------------------------------------------------");
+                System.out.println("Provide your choice: ");
+
+                TokenStreamRewriter tokenStreamRewriter = new TokenStreamRewriter(tokens);
+                writeToFile(tokenStreamRewriter.getText(), "Output.java");
+                System.out.println("Refactoring finished successfully!");
+            }
+            input.close();
         } catch (IOException e) {
             System.out.println("File with the given name was not found");
         }
