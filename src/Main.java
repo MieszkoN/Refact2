@@ -30,19 +30,7 @@ public class Main {
                 i++;
             }
             System.out.println("---------------------------------------------------------------------------");
-            int classChoice = -1;
-            boolean correctOption = false;
-            while(!correctOption) {
-                System.out.println("Provide your choice: ");
-                Scanner scan = new Scanner(System.in);
-                if (scan.hasNextInt()) {
-                    classChoice = scan.nextInt();
-                    correctOption = true;
-                } else {
-                    System.out.println("You did not provide correct option, try again!");
-                }
-            }
-
+            int classChoice = chooseOption(miniJavaBaseVisitor.getClasses().size());
             String chosenClassName = miniJavaBaseVisitor.getClasses().get(classChoice-1);
             System.out.println("---------------------------------------------------------------------------");
             if (!miniJavaBaseVisitor.getClassesWithMethods().containsKey(chosenClassName)) {
@@ -55,7 +43,7 @@ public class Main {
                     j++;
                 }
                 System.out.println("---------------------------------------------------------------------------");
-                System.out.println("Provide your choice: ");
+                int methodChoice = chooseOption(miniJavaBaseVisitor.getClassesWithMethods().get(chosenClassName).size());
 
                 TokenStreamRewriter tokenStreamRewriter = new TokenStreamRewriter(tokens);
                 writeToFile(tokenStreamRewriter.getText(), "Output.java");
@@ -72,6 +60,26 @@ public class Main {
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    private static int chooseOption(int optionsSize) {
+        boolean correctOption = false;
+        int choice = -1;
+        while(!correctOption) {
+            System.out.println("Provide your choice: ");
+            Scanner scan = new Scanner(System.in);
+            if (scan.hasNextInt()) {
+                choice = scan.nextInt();
+                if (choice <= optionsSize && choice > 0) {
+                    correctOption = true;
+                } else {
+                    System.out.println("You did not provide correct option, try again!");
+                }
+            } else {
+                System.out.println("You should provide the number, try again!");
+            }
+        }
+        return choice;
     }
 }
 
