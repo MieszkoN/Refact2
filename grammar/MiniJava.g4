@@ -128,6 +128,8 @@ expression
     # subExpression
     |   expression '*'  expression
     # mulExpression
+    |   expression '/'  expression
+    # divExpression
     |   expression '<'  expression
     # ltExpression  
     |   expression '&&' expression
@@ -135,6 +137,8 @@ expression
     |   INT
     # intLitExpression
     |   BOOL
+    # stringLitExpression
+    |   STRING
     # booleanLitExpression
     |   Identifier
     # identifierExpression
@@ -175,6 +179,10 @@ INT
 BOOL
     :   'true'
     |   'false'
+    ;
+
+STRING
+    :   '"' ('\\' ["\\] | ~["\\\r\n])* '"'
     ;
 
 Identifier

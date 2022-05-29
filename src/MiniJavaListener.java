@@ -325,6 +325,18 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitNotExpression(MiniJavaParser.NotExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code divExpression}
+	 * labeled alternative in {@link MiniJavaParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterDivExpression(MiniJavaParser.DivExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code divExpression}
+	 * labeled alternative in {@link MiniJavaParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitDivExpression(MiniJavaParser.DivExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code booleanLitExpression}
 	 * labeled alternative in {@link MiniJavaParser#expression}.
 	 * @param ctx the parse tree
@@ -337,18 +349,6 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitBooleanLitExpression(MiniJavaParser.BooleanLitExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code parenExpression}
-	 * labeled alternative in {@link MiniJavaParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterParenExpression(MiniJavaParser.ParenExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code parenExpression}
-	 * labeled alternative in {@link MiniJavaParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitParenExpression(MiniJavaParser.ParenExpressionContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code intLitExpression}
 	 * labeled alternative in {@link MiniJavaParser#expression}.
 	 * @param ctx the parse tree
@@ -360,6 +360,30 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIntLitExpression(MiniJavaParser.IntLitExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code stringLitExpression}
+	 * labeled alternative in {@link MiniJavaParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringLitExpression(MiniJavaParser.StringLitExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code stringLitExpression}
+	 * labeled alternative in {@link MiniJavaParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringLitExpression(MiniJavaParser.StringLitExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code parentExpression}
+	 * labeled alternative in {@link MiniJavaParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterParentExpression(MiniJavaParser.ParentExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code parentExpression}
+	 * labeled alternative in {@link MiniJavaParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitParentExpression(MiniJavaParser.ParentExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code andExpression}
 	 * labeled alternative in {@link MiniJavaParser#expression}.

@@ -198,6 +198,13 @@ public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitNotExpression(MiniJavaParser.NotExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code divExpression}
+	 * labeled alternative in {@link MiniJavaParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDivExpression(MiniJavaParser.DivExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code booleanLitExpression}
 	 * labeled alternative in {@link MiniJavaParser#expression}.
 	 * @param ctx the parse tree
@@ -205,19 +212,26 @@ public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBooleanLitExpression(MiniJavaParser.BooleanLitExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code parenExpression}
-	 * labeled alternative in {@link MiniJavaParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitParenExpression(MiniJavaParser.ParenExpressionContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code intLitExpression}
 	 * labeled alternative in {@link MiniJavaParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitIntLitExpression(MiniJavaParser.IntLitExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code stringLitExpression}
+	 * labeled alternative in {@link MiniJavaParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStringLitExpression(MiniJavaParser.StringLitExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code parentExpression}
+	 * labeled alternative in {@link MiniJavaParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParentExpression(MiniJavaParser.ParentExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code andExpression}
 	 * labeled alternative in {@link MiniJavaParser#expression}.
