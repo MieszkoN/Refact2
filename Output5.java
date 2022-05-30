@@ -4,12 +4,14 @@ class Input5 {
     }
 }
 class Vehicle {
+	public int calculatePrice(int standardPrice, int discount) {
+        return standardPrice - discount;
+    }
+
 
 }
 class Motorcycle extends Vehicle {
-    public int calculatePrice(int standardPrice, int discount) {
-        return standardPrice - discount;
-    }
+    
 }
 class Car extends Vehicle {
     public int calculatePrice(int discount, int standardPrice) {

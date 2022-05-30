@@ -5,10 +5,7 @@ class Input6 {
 }
 
 class Vehicle {
-}
-
-class Motorcycle extends Vehicle {
-    public int [] getParts () {
+	public int [] getParts () {
         int i;
         int [] parts;
         parts = new int[5];
@@ -19,20 +16,15 @@ class Motorcycle extends Vehicle {
         }
         return parts;
     }
+
+}
+
+class Motorcycle extends Vehicle {
+    
 }
 
 This is not valid line
 
 class Car extends Vehicle {
-    public int [] getParts () {
-        int i;
-        int [] parts;
-        parts = new int [5];
-        i = 0;
-        while(i < 5) {
-            parts[i] = i;
-            i = i + 1;
-        }
-        return parts;
-    }
+    
 }

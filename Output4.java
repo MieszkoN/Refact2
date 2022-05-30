@@ -5,6 +5,16 @@ class Input4 {
 }
 
 class Vehicle {
+	public int calculateSpeed(int displacement, int time, boolean noMovement) {
+        int speed;
+        if (noMovement) {
+            speed = 0;
+        } else {
+            speed = displacement / time;
+        }
+        return speed;
+    }
+
     String brand;
     String color;
     public String getBrand() {
@@ -15,26 +25,10 @@ class Vehicle {
     }
 }
 class Motorcycle extends Vehicle {
-    public int calculateSpeed(int displacement, int time, boolean noMovement) {
-        int speed;
-        if (noMovement) {
-            speed = 0;
-        } else {
-            speed = displacement / time;
-        }
-        return speed;
-    }
+    
 }
 class Car extends Vehicle {
-    public int calculateSpeed(int displacement, int time, boolean noMovement) {
-        int speed;
-        if (noMovement) {
-            speed = 0;
-        } else {
-            speed = displacement / time;
-        }
-        return speed;
-    }
+    
 }
 class Bus extends Vehicle {
     public int calculateSpeed(int displacement, int time, boolean noMovement, int acceleration) {

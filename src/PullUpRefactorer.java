@@ -27,7 +27,13 @@ public class PullUpRefactorer extends MiniJavaBaseVisitor {
 
     @Override
     public Object visitMethodDeclaration(MiniJavaParser.MethodDeclarationContext ctx) {
-        if (ctx.getText().equals(methodToPullUp)) {
+        String currentMethodParentClass = "";
+        Boolean hasParent = false;
+        if (ctx.getParent().getParent().getChildCount() > 3) {
+            currentMethodParentClass = ctx.getParent().getParent().getChild(3).getText();
+            hasParent = true;
+        }
+        if (ctx.getText().equals(methodToPullUp) && parentClass.equals(currentMethodParentClass)) {
             int destination = getParentClassBodyStartIndex();
             if (!methodInParentClass) {
                 tokenStreamRewriter.insertAfter(destination, "\n\t" + ctx.start.getInputStream().getText(Interval.of(ctx.start.getStartIndex(), ctx.stop.getStopIndex())) + "\n");
