@@ -1,6 +1,7 @@
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -48,7 +49,11 @@ public class Main {
                 String chosenMethod = miniJavaBaseVisitor.getClassesWithMethods().get(chosenClassName).get(methodChoice-1);
                 String parentClass = miniJavaBaseVisitor.getClassesWithParents().get(chosenClassName);
                 TokenStreamRewriter tokenStreamRewriter = new TokenStreamRewriter(tokens);
-                PullUpRefactorer pullUpRefactorer = new PullUpRefactorer(chosenMethod, chosenClassName, parentClass, tokenStreamRewriter, tokens);
+                List<String> parentClassMethodDeclarations = miniJavaBaseVisitor.getClassesWithMethodDeclaration().get(parentClass);
+                System.out.println("-------------------------------------");
+                chosenMethod = chosenMethod.replaceAll(" ", "");
+                String pullUpMethodDeclaration = miniJavaBaseVisitor.getWholeMethodsWithDeclarations().get(chosenMethod);
+                PullUpRefactorer pullUpRefactorer = new PullUpRefactorer(chosenMethod, chosenClassName, parentClass, tokenStreamRewriter, tokens, parentClassMethodDeclarations, pullUpMethodDeclaration);
                 pullUpRefactorer.visit(tree);
                 tokenStreamRewriter = pullUpRefactorer.getTokenStreamRewriter();
                 FileHandler.writeToFile(tokenStreamRewriter.getText(), filename);

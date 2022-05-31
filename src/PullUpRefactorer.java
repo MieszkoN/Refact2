@@ -2,6 +2,8 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.TokenStreamRewriter;
 import org.antlr.v4.runtime.misc.Interval;
 
+import java.util.List;
+
 public class PullUpRefactorer extends MiniJavaBaseVisitor {
     private String methodToPullUp;
     private String sourceClass;
@@ -9,12 +11,18 @@ public class PullUpRefactorer extends MiniJavaBaseVisitor {
     private TokenStreamRewriter tokenStreamRewriter;
     private CommonTokenStream tokens;
     private boolean methodInParentClass = false;
-    public PullUpRefactorer(String methodToPullUp, String sourceClass, String parentClass, TokenStreamRewriter tokenStreamRewriter, CommonTokenStream tokens) {
-        this.methodToPullUp = methodToPullUp.replaceAll(" ", "");
+    private List<String> parentClassMethodDeclarations;
+    private String pullUpMethodDeclaration;
+
+    private boolean methodDeclarationInParentClass = false;
+    public PullUpRefactorer(String methodToPullUp, String sourceClass, String parentClass, TokenStreamRewriter tokenStreamRewriter, CommonTokenStream tokens, List<String> parentClassMethodDeclarations, String pullUpMethodDeclaration) {
+        this.methodToPullUp = methodToPullUp;
         this.sourceClass = sourceClass;
         this.parentClass = parentClass;
         this.tokenStreamRewriter = tokenStreamRewriter;
         this.tokens = tokens;
+        this.parentClassMethodDeclarations = parentClassMethodDeclarations;
+        this.pullUpMethodDeclaration = pullUpMethodDeclaration;
     }
 
     @Override
@@ -29,11 +37,19 @@ public class PullUpRefactorer extends MiniJavaBaseVisitor {
     public Object visitMethodDeclaration(MiniJavaParser.MethodDeclarationContext ctx) {
         String currentMethodParentClass = "";
         Boolean hasParent = false;
+        String methodDeclaration = ctx.Identifier().getText() + ctx.formalParameters().getText();
         if (ctx.getParent().getParent().getChildCount() > 3) {
             currentMethodParentClass = ctx.getParent().getParent().getChild(3).getText();
             hasParent = true;
         }
-        if (ctx.getText().equals(methodToPullUp) && parentClass.equals(currentMethodParentClass)) {
+
+        if (parentClassMethodDeclarations != null) {
+            if (parentClassMethodDeclarations.contains(methodDeclaration) && !ctx.getText().equals(methodToPullUp) && methodDeclaration.equals(pullUpMethodDeclaration) && parentClass.equals(ctx.getParent().getParent().getChild(1).getText())) {
+                methodDeclarationInParentClass = true;
+            }
+        }
+
+        if (ctx.getText().equals(methodToPullUp) && parentClass.equals(currentMethodParentClass) && !methodDeclarationInParentClass) {
             int destination = getParentClassBodyStartIndex();
             if (!methodInParentClass) {
                 tokenStreamRewriter.insertAfter(destination, "\n\t" + ctx.start.getInputStream().getText(Interval.of(ctx.start.getStartIndex(), ctx.stop.getStopIndex())) + "\n");

@@ -1,4 +1,4 @@
-class Input2 {
+class Input8 {
     public static void main(String[] args) {
         return 0;
     }
