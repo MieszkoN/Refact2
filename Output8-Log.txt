@@ -1,0 +1,15 @@
+---------------------------------------------------------------------------
+Please provide the name of the file:
+Input8.java
+---------------------------------------------------------------------------
+Please select the child class from which you want to pull up the method.
+1. Car
+2. Truck
+---------------------------------------------------------------------------
+Provide your choice: 
+2
+---------------------------------------------------------------------------
+Please select the method which you want to pull up:
+1. public int getSpeed() {intspeed;speed=50;returnspeed;}
+---------------------------------------------------------------------------
+Provide your choice: 
