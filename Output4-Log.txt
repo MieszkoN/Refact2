@@ -1,0 +1,19 @@
+---------------------------------------------------------------------------
+Please provide the name of the file:
+Input4.java
+---------------------------------------------------------------------------
+Please select the child class from which you want to pull up the method.
+1. Motorcycle
+2. Car
+3. Bus
+---------------------------------------------------------------------------
+Provide your choice: 
+1
+---------------------------------------------------------------------------
+Please select the method which you want to pull up:
+1. public int calculateSpeed(intdisplacement,inttime,booleannoMovement) {intspeed;if(noMovement){speed=0;}else{speed=displacement/time;}returnspeed;}
+---------------------------------------------------------------------------
+Provide your choice: 
+1
+-------------------------------------
+Refactoring finished successfully!

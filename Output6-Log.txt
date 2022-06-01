@@ -1,0 +1,19 @@
+---------------------------------------------------------------------------
+Please provide the name of the file:
+Input6.java
+line 24:0 extraneous input 'This' expecting {<EOF>, 'class'}
+---------------------------------------------------------------------------
+Please select the child class from which you want to pull up the method.
+1. Motorcycle
+2. Car
+---------------------------------------------------------------------------
+Provide your choice: 
+1
+---------------------------------------------------------------------------
+Please select the method which you want to pull up:
+1. public int[] getParts() {inti;int[]parts;parts=newint[5];i=0;while(i<5){parts[i]=i;i=i+1;}returnparts;}
+---------------------------------------------------------------------------
+Provide your choice: 
+1
+-------------------------------------
+Refactoring finished successfully!
